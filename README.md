@@ -42,9 +42,24 @@ usage: identify_vuln_introduction.sh -c <commit_hash> -f <filepath> -l <line_num
 
 Given the commit hash of the commit that introduced the vulnerability into the database, this script will output the commit's author.
 
+```
+usage: identify_author.sh -c <commit_hash> -d <repository_dir> [-v]
+  -c <commit_hash>: The hash string associated with the commit that fixes the vulnerability in question
+  -d <repository_directory>: An absolute or relative filepath to the local directory containing the git repository to examine
+  -v: toggle verbose output
+```
+
 **3. get_commits_by_author.sh**
 
 Given the username of the author of the vulnerable commit, this script will output the commit hashes of all of that user's commits.
+
+```
+usage: get_commits_by_author.sh -a <author> -d <repository_dir> [-v]
+  -a <author>: The git username of the author
+  -d <repository_directory>: An absolute or relative filepath to the local directory containing the git repository to examine
+  -v: toggle verbose output
+```
+
 
 ## Demo
 This demo will use [CVE-2018-17179](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17179). To start we visit the CVE page and then navigate to the reference link that is a [commit that fixes the vulnerability](https://github.com/openemr/openemr/commit/3e22d11c7175c1ebbf3d862545ce6fee18f70617).
