@@ -41,24 +41,24 @@ Given the username of the author of the vulnerable commit, this script will outp
 This demo will use [CVE-2018-17179](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17179). To start we visit the CVE page and then navigate to the reference link that is a [commit that fixes the vulnerability](https://github.com/openemr/openemr/commit/3e22d11c7175c1ebbf3d862545ce6fee18f70617).
 
 From this page we note the following information before beginning:
-The commit hash: `3e22d11c7175c1ebbf3d862545ce6fee18f70617`
-The file containing the vulnerability: `interface/forms/eye_mag/php/taskman_functions.php`
-The line number containing the vulnerability before it was fixed: `97`
+* The commit hash: `3e22d11c7175c1ebbf3d862545ce6fee18f70617`
+* The file containing the vulnerability: `interface/forms/eye_mag/php/taskman_functions.php`
+* The line number containing the vulnerability before it was fixed: `97`
 
 That information will be fed to our scripts later. *Note: the filename is expressed as relative to the repository*
 
 From there, we can run the following commands to download this tool and the repository, and identify commits written by the person who introduced this vulnerability:
 ```
-root@localhost:~# mkdir demo
-root@localhost:~# cd demo
-root@localhost:~/demo# git clone https://github.com/mynameiswillporter/Stalking-Open-Source-Offenders.git
+will@localhost:~# mkdir demo
+will@localhost:~# cd demo
+will@localhost:~/demo# git clone https://github.com/mynameiswillporter/Stalking-Open-Source-Offenders.git
 Cloning into 'Stalking-Open-Source-Offenders'...
 remote: Enumerating objects: 16, done.
 remote: Counting objects: 100% (16/16), done.
 remote: Compressing objects: 100% (13/13), done.
 remote: Total 16 (delta 6), reused 10 (delta 3), pack-reused 0
 Unpacking objects: 100% (16/16), done.
-root@localhost:~/demo# git clone https://github.com/openemr/openemr.git
+will@localhost:~/demo# git clone https://github.com/openemr/openemr.git
 Cloning into 'openemr'...
 remote: Enumerating objects: 23, done.
 remote: Counting objects: 100% (23/23), done.
@@ -67,12 +67,12 @@ remote: Total 138400 (delta 4), reused 8 (delta 1), pack-reused 138377
 Receiving objects: 100% (138400/138400), 454.75 MiB | 23.08 MiB/s, done.
 Resolving deltas: 100% (89068/89068), done.
 Checking out files: 100% (4477/4477), done.
-root@localhost:~/demo# cd Stalking-Open-Source-Offenders/
-root@localhost:~/demo/Stalking-Open-Source-Offenders# ./identify_vuln_introduction.sh -c 3e22d11c7175c1ebbf3d862545ce6fee18f70617 -f interface/forms/eye_mag/php/taskman_functions.php -l 97 -d ../openemr/
+will@localhost:~/demo# cd Stalking-Open-Source-Offenders/
+will@localhost:~/demo/Stalking-Open-Source-Offenders# ./identify_vuln_introduction.sh -c 3e22d11c7175c1ebbf3d862545ce6fee18f70617 -f interface/forms/eye_mag/php/taskman_functions.php -l 97 -d ../openemr/
 00aa8a6f2cd12e668532c313fa028a56144bf62e
-root@localhost:~/demo/Stalking-Open-Source-Offenders# ./identify_author.sh -c 00aa8a6f2cd12e668532c313fa028a56144bf62e -d ../openemr/
+will@localhost:~/demo/Stalking-Open-Source-Offenders# ./identify_author.sh -c 00aa8a6f2cd12e668532c313fa028a56144bf62e -d ../openemr/
 ophthal
-root@localhost:~/demo/Stalking-Open-Source-Offenders# ./get_commits_by_author.sh -a ophthal -d ../openemr/
+will@localhost:~/demo/Stalking-Open-Source-Offenders# ./get_commits_by_author.sh -a ophthal -d ../openemr/
 9a70d54ee4928aa6e0dba2ad6b5e844d311100b5
 3a876955b7b4eef79e39805f0c618cb342ccf98b
 1b020696171f09a0ffaaf5cdfba9a2939f3f534c
@@ -174,4 +174,4 @@ a0e3f8dcc09334a2a79293cc4f60a65973cd1d46
 8cad823405370ea9f6407892fa2018fbcbac221b
 ```
 
-This last command can be bashfoo'd into whatever you want. I chose to turn them into github links that let me view the diff in the browser.
+This last command can be bashfoo'd into whatever you want. I chose to turn them into GitHub links that let me view the diff in the browser.
