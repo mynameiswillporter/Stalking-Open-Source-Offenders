@@ -29,6 +29,15 @@ This script is the first step. Inputs to the script will need to include the com
 
 This script will output a commit hash of the commit that introduced the vulnerability into the codebase.
 
+```
+usage: identify_vuln_introduction.sh -c <commit_hash> -f <filepath> -l <line_number> -d <repository_dir> [-v]
+  -c <commit_hash>: The hash string associated with the commit that fixes the vulnerability in question
+  -f <filepath>: The filepath of the vulnerable file relative to the repository
+  -l <line_number>: The line number containing the vulnerability. If multiple line numbers contain the vulnerability, pick the most important one
+  -d <repository_directory>: An absolute or relative filepath to the local directory containing the git repository to examine
+  -v: toggle verbose output
+```
+
 **2. identify_author.sh**
 
 Given the commit hash of the commit that introduced the vulnerability into the database, this script will output the commit's author.
