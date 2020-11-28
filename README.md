@@ -3,7 +3,8 @@ This repository contains a methodology for finding novel vulnerabilities in open
 
 The talk was presented at BSidesCT and BSidesDayton in 2020.
 
-BSidesCT: https://www.youtube.com/watch?v=wSvlhFQzUNg
+BSidesDayton (2020-11-21): https://www.youtube.com/watch?v=Eq59O381jj0
+BSidesCT (2020-11-14): https://www.youtube.com/watch?v=wSvlhFQzUNg
 
 This repository contains information describing the methodology, and has some tooling built around the methodology herein described.
 
